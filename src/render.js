@@ -18,5 +18,7 @@ export const renderHTMLDomTree = createDomRenderer(function (nodeName, attribute
         return "<" + nodeName + "/>";
     }
 
-    return "<" + nodeName + ">" + children + "</" + nodeName + ">";
+    const childs = children.reduce((s, c) => s + c, "");
+
+    return "<" + nodeName + ">" + child + "</" + nodeName + ">";
 });
