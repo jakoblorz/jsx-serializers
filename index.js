@@ -6,5 +6,5 @@ Object.defineProperty(exports, "__esModule", {
 
 var createDomRenderer = exports.createDomRenderer = require("./dist/render").createDomRenderer;
 var loadDomTree = exports.loadDomTree = require("./dist/render").loadDomTree;
-var renderJSONDomTree = exports.renderJSONDomTree = require("./dist/render").renderJSONDomTree;
-var renderHTMLDomTree = exports.renderHTMLDomTree = require("./dist/render").renderHTMLDomTree;
+var renderJSONDomTree = exports.renderJSONDomTree = require("./dist/json").renderJSONDomTree;
+var renderHTMLDomTree = exports.renderHTMLDomTree = require("./dist/html").renderHTMLDomTree;
