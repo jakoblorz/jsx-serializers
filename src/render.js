@@ -1,29 +1,22 @@
-// overall idea: credits to "https://jasonformat.com/wtf-is-jsx/"
+export const createDomRenderer = function (fn) {
+    return function (nodeName, attributes, ...args) {
+        let children = args.length ? [].concat(...args) : null;
+        return fn(nodeName, attributes, children);
+    }
+}
 
-export const loadDomTree = function (nodeName, attributes, ...args) {
-    let children = args.length ? [].concat(...args) : null;
+export const loadDomTree = createDomRenderer(function (nodeName, attributes, children) {
     return { nodeName, attributes, children };
-};
+});
 
-export const renderJSONDomTree = function (vnode) {
-    return JSON.stringify(vnode);
-};
+export const renderJSONDomTree = createDomRenderer(function (nodeName, attributes, children) {
+    return JSON.stringify({ nodeName, attributes, children });
+});
 
-export const renderHTMLDomTree = function (vnode) {
-    // Strings just convert to #text Nodes:
-    if (vnode.split) return document.createTextNode(vnode);
+export const renderHTMLDomTree = createDomRenderer(function (nodeName, attributes, children) {
+    if (!children) {
+        return "<" + nodeName + "/>";
+    }
 
-    // create a DOM element with the nodeName of our VDOM element:
-    let n = document.createElement(vnode.nodeName);
-
-    // copy attributes onto the new node:
-    let a = vnode.attributes || {};
-    Object.keys(a).forEach( k => n.setAttribute(k, a[k]) );
-
-    // render (build) and then append child nodes:
-    (vnode.children || []).forEach( c => n.appendChild(renderHTMLDomTree(c)) );
-
-    return n;
-};
-
-export const renderXMLDomTree = renderHTMLDomTree;
+    return "<" + nodeName + ">" + children + "</" + nodeName + ">";
+});
