@@ -15,7 +15,7 @@ export const renderJSONDomTree = createDomRenderer(function (nodeName, attribute
 
 export const renderHTMLDomTree = createDomRenderer(function (nodeName, attributes, children) {
 
-    const attribs = Object.keys(attributes).reduce((atts, att) =>
+    const attribs = Object.keys(attributes ? attributes : {}).reduce((atts, att) =>
         atts + " " + att + '="' + attributes[att] + '"', "");
 
     if (!children) {
@@ -26,5 +26,3 @@ export const renderHTMLDomTree = createDomRenderer(function (nodeName, attribute
 
     return "<" + nodeName + attribs + ">" + childs + "</" + nodeName + ">";
 });
-
-console.log(renderHTMLDomTree("ul", { name: "user" }, "username"));
