@@ -2,7 +2,7 @@ import { createDomRenderer } from "./render";
 
 export const renderJSONDomTree = createDomRenderer(function (nodeName, attributes, children) {
 
-    let serializedChildString = "[]";
+    /*let serializedChildString = "[]";
     
     const isJsonFormat = function (val) {
         return val[0] === "{" && val[1] === '"' && val[val.length - 1] === "}";
@@ -22,5 +22,8 @@ export const renderJSONDomTree = createDomRenderer(function (nodeName, attribute
     }
 
     const serializedContent = JSON.stringify({ nodeName, attributes });
-    return serializedContent.slice(0, -1) + ',"children":' + serializedChildString + "}";
+    return serializedContent.slice(0, -1) + ',"children":' + serializedChildString + "}";*/
+    return { nodeName, attributes, children };
 });
+
+export const renderJSONDomToString = JSON.stringify;
