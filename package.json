@@ -1,8 +1,8 @@
 {
   "name": "jsx-serializers",
-  "version": "1.0.0",
-  "description": "collection of jsx serializers which can be injected using @jsx statement when compiling with babel",
-  "main": "./dist/index.js",
+  "version": "1.0.1",
+  "description": "collection of jsx serializers which can be injected by using @jsx statement when compiling with babel",
+  "main": "index.js",
   "scripts": {
     "build": "babel src -d dist",
     "prepublish": "npm run build"
