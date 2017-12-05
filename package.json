@@ -1,6 +1,6 @@
 {
   "name": "jsx-serializers",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "collection of jsx serializers which can be injected by using @jsx statement when compiling with babel",
   "main": "index.js",
   "scripts": {

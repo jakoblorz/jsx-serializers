@@ -14,11 +14,17 @@ export const renderJSONDomTree = createDomRenderer(function (nodeName, attribute
 });
 
 export const renderHTMLDomTree = createDomRenderer(function (nodeName, attributes, children) {
+
+    const attribs = Object.keys(attributes).reduce((atts, att) =>
+        atts + " " + att + '="' + attributes[att] + '"', "");
+
     if (!children) {
-        return "<" + nodeName + "/>";
+        return "<" + nodeName + attribs + "/>";
     }
 
     const childs = children.reduce((s, c) => s + c, "");
 
-    return "<" + nodeName + ">" + child + "</" + nodeName + ">";
+    return "<" + nodeName + attribs + ">" + childs + "</" + nodeName + ">";
 });
+
+console.log(renderHTMLDomTree("ul", { name: "user" }, "username"));
