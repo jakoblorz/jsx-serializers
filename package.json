@@ -1,0 +1,25 @@
+{
+  "name": "jsx-serializers",
+  "version": "1.0.0",
+  "description": "collection of jsx serializers which can be injected using @jsx statement when compiling with babel",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakoblorz/jsx-serializers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakoblorz/jsx-serializers/issues"
+  },
+  "homepage": "https://github.com/jakoblorz/jsx-serializers#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
