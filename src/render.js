@@ -21,7 +21,7 @@ export const renderHTMLDomTree = function (vnode) {
     Object.keys(a).forEach( k => n.setAttribute(k, a[k]) );
 
     // render (build) and then append child nodes:
-    (vnode.children || []).forEach( c => n.appendChild(render(c)) );
+    (vnode.children || []).forEach( c => n.appendChild(renderHTMLDomTree(c)) );
 
     return n;
 };
